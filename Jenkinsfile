@@ -12,7 +12,7 @@ pipeline {
         stage('Verify Repo') {
             steps {
                 echo "Verifying GitHub repo is reachable..."
-                sh 'git ls-remote https://github.com/vishalskyonix/safegold-demo.git HEAD'
+                sh 'git ls-remote https://github.com/jagruti4699/safegold-demo.git HEAD'
             }
         }
 
@@ -39,7 +39,7 @@ pipeline {
                           --scripts "
                             cd /tmp
                             rm -rf safegold-demo
-                            git clone https://github.com/vishalskyonix/safegold-demo.git
+                            git clone https://github.com/jagruti4699/safegold-demo.git
                             chmod +x /tmp/safegold-demo/deploy.sh
                             bash /tmp/safegold-demo/deploy.sh
                           " \
