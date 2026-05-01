@@ -14,7 +14,7 @@ apt-get install -y nginx git
 rm -rf /var/www/html/*
 cd /tmp
 rm -rf safegold-demo
-git clone https://github.com/vishalskyonix/safegold-demo.git
+git clone https://github.com/jagruti4699/safegold-demo.git
 mv /tmp/safegold-demo/index.html /var/www/html/
 
 # Inject actual hostname into the page
