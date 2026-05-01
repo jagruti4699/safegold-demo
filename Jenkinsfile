@@ -4,7 +4,7 @@ pipeline {
     environment {
         RG   = 'uat-uae-rg'
         VMSS = 'demo-1-vmss'
-        REPO = 'https://github.com/vishalskyonix/safegold-demo.git'
+        REPO = 'https://github.com/jagruti4699/safegold-demo.git'
     }
 
     stages {
