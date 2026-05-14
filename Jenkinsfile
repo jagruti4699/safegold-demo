@@ -26,9 +26,19 @@ pipeline {
                 ]) {
 
                     sh '''
+                        echo "Starting deployment..."
+
+                        echo "Current User:"
+                        whoami
+
+                        echo "Checking binaries..."
+                        which rsync || true
+                        which ssh || true
+                        /usr/bin/sshpass -V || true
+
                         echo "Deploying PHP application to Azure VM..."
 
-                        sshpass -p "$VM_PASSWORD" rsync -avz --delete \
+                        /usr/bin/sshpass -p "$VM_PASSWORD" rsync -avz --delete \
                         -e "ssh -o StrictHostKeyChecking=no" \
                         ./ $VM_USERNAME@$VM_IP:$TARGET_PATH/
 
@@ -40,12 +50,17 @@ pipeline {
     }
 
     post {
+
         success {
             echo 'Deployment successful.'
         }
 
         failure {
             echo 'Deployment failed.'
+        }
+
+        always {
+            echo 'Pipeline execution completed.'
         }
     }
 }
